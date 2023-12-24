@@ -3,12 +3,16 @@
     src: url("../../public/fonts/gteestiprodisplay_regular.otf") format("opentype");
 }
 
-* {
+:root {
+    --progress-percent: 0%;
+
     --primary-color: #005cff;
     --text-color: #000000;
     --secondary-color: #eaf0f6;
     --default-color: #ffffff;
+}
 
+* {
     font-family: "GTEestiPro";
     font-size: 16px;
 
@@ -32,6 +36,10 @@ body {
     flex-direction: column;
     background-color: var(--default-color);
     padding: 24px 20px;
+}
+
+.progress {
+    justify-content: space-between;
 }
 
 
@@ -71,7 +79,25 @@ body {
     border-radius: 50%;
     background:
         radial-gradient(closest-side, white 85%, transparent 80% 100%),
-        conic-gradient(var(--primary-color) 75%, var(--secondary-color) 0);
+        conic-gradient(var(--primary-color) var(--progress-percent), var(--secondary-color) 0);
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.animated {
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /*-------input-number----------*/
