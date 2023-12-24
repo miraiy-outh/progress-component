@@ -1,6 +1,26 @@
 function changeValue(event) {
-    const value = event.target.value
+    let value = event.target.value
+    const min = event.target.min
+    const max = event.target.max
+    value = enforceMinMax(value, min, max)
+    event.target.value = value
     document.documentElement.style.setProperty('--progress-percent', `${value}%`);
+}
+
+function enforceMinMax(value, min, max) {
+    if (value === "") {
+        return min
+    }
+    while (value[0] === '0' && value.length > 1) {
+        value = value.substring(1, value.length)
+    }
+    if (parseInt(value) < parseInt(min)) {
+        value = min
+    }
+    if (parseInt(value) > parseInt(max)) {
+        value = max
+    }
+    return value
 }
 
 function addAnimation(event) {
