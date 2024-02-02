@@ -1,1 +1,1 @@
-Запустить по сслыке: https://miraiy-outh.github.io/progress-component/
+Запустить по ссылке: https://miraiy-outh.github.io/progress-component/
